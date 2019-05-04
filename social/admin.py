@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 
 from social.forms import SocialUserCreationForm, SocialUserChangeForm
-from social.models import SocialUser
+from social.models import SocialUser, Post
 
 class SocialUserAdmin(UserAdmin):
     add_form = SocialUserCreationForm
@@ -12,3 +12,4 @@ class SocialUserAdmin(UserAdmin):
     list_display = ['email', 'username',]
 
 admin.site.register(SocialUser, SocialUserAdmin)
+admin.site.register(Post)
