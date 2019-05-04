@@ -123,3 +123,4 @@ STATIC_URL = '/static/'
 # Settings
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+AUTH_USER_MODEL = 'social.SocialUser'
