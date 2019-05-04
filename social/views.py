@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView
 from django.views.generic.base import TemplateView
-from social.models import Post
+from social.models import Post, Snippet
 
 from operator import or_
 from functools import wraps, reduce
@@ -20,14 +20,13 @@ def ret_or_super(func):
     return wrapper
 
 class ExtendedListView(ListView):
-    @ret_or_super
     def get_queryset(self):
         queryset = reduce(or_, map(lambda model: model._default_manager.all(), self.models))
         return queryset
         
     
 class Home(ExtendedListView):
-    models = Post,
+    models = Post, Snippet
     template_name = 'home.html'
     context_object_name = 'feed'
     

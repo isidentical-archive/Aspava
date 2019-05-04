@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 
 from social.forms import SocialUserCreationForm, SocialUserChangeForm
-from social.models import SocialUser, Post
+from social.models import SocialUser, Post, Snippet
 
 class SocialUserAdmin(UserAdmin):
     add_form = SocialUserCreationForm
@@ -13,3 +13,4 @@ class SocialUserAdmin(UserAdmin):
 
 admin.site.register(SocialUser, SocialUserAdmin)
 admin.site.register(Post)
+admin.site.register(Snippet)

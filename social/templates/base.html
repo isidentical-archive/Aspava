@@ -3,11 +3,13 @@
 <head>
   <meta charset="utf-8">
   <title>{% block title %}Aspava{% endblock %}</title>
+  {% block css %}{% endblock %}
 </head>
 <body>
   <main>
     {% block content %}
     {% endblock %}
   </main>
+  {% block js %}{% endblock %}
 </body>
 </html>
