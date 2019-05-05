@@ -28,3 +28,6 @@ class Post(Sharable):
 
 class Snippet(Sharable):
     text = models.TextField()
+
+class Link(Sharable):
+    url = models.URLField()

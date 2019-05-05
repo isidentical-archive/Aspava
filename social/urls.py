@@ -84,7 +84,7 @@ class PatternManager:
 
 class SocialPatterns(PatternManager, UserList):
     home = "", Home
-    user = "people/<slug>/", Profile
+    profile = "people/<slug>/", Profile
     register = "accounts/register/", Register
     
     includes = {
