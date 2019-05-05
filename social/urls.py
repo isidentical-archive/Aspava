@@ -2,7 +2,7 @@ from collections import UserList
 from dataclasses import dataclass
 from typing import Optional, Sequence
 from django.urls import include, path
-from social.views import Home, Register
+from social.views import Home, Register, Profile
 
 
 @dataclass(frozen=True, unsafe_hash=True)
@@ -84,8 +84,9 @@ class PatternManager:
 
 class SocialPatterns(PatternManager, UserList):
     home = "", Home
+    user = "people/<slug>/", Profile
     register = "accounts/register/", Register
-
+    
     includes = {
         "accounts": IncludeFilter(
             "django.contrib.auth.urls", whitelist=("login", "logout")

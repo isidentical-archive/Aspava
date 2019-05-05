@@ -127,3 +127,4 @@ AUTH_USER_MODEL = 'social.SocialUser'
 
 # Extra Settings
 MAX_POST_LENGTH = 144 * 2
+AVATAR = 'http://www.iconarchive.com/download/i106224/papirus-team/papirus-apps/python.ico'

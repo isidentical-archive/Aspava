@@ -3,7 +3,11 @@ from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 
 class SocialUser(AbstractUser):
-    pass
+    avatar = models.URLField(blank=True, default=settings.AVATAR)
+    
+    @property
+    def slug(self):
+        return self.username
 
 class Sharable(models.Model):
     class Meta:

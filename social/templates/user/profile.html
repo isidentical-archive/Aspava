@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Profile{% endblock %}
+{% block css %}
+    <style>
+    .container {
+        width: 100%;
+        height: 200px;
+        margin: auto;
+        padding: 10px;
+    }
+    .avatar {
+        width: 45%;
+        height: 200px;
+        float: left;
+    }
+    .content {
+        margin-left: 45%;
+        height: 200px;
+    }
+    </style>    
+{% endblock %}
+{% block content %}
+<section class="container">
+    <div class="avatar">
+        <img src="{{ object.avatar }}" alt="{{ object.username }}'s Avatar">
+    </div>
+    <div class="content">
+    <h3>{{ object.username }}</h3>
+    <ul>
+        <li>Mail: {{ object.email }}</li>
+    </ul>
+    </div>
+</section>
+{% endblock %}
