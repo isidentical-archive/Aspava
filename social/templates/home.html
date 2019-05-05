@@ -2,7 +2,8 @@
 
 {% block title %}Home{% endblock %}
 {% block css %}
-    <link rel="stylesheet" href="https://prismjs.com/themes/prism.css" data-noprefix />
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
 {% endblock %}
 {% block content %}
     {% if user.is_authenticated %}
@@ -18,5 +19,6 @@
     {% endif %}
 {% endblock %}
 {% block js %}
-    <script src="https://prismjs.com/prism.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>    
+    <script>hljs.initHighlightingOnLoad();</script>
 {% endblock %}

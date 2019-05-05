@@ -1,5 +1,12 @@
 <div>
-    <pre>
-        <code class="language-py">{{ item.text }}</code>
-    </pre>
+    <fieldset>
+        <legend>{{ item.author }}</legend>
+        <pre>
+            <code class="python">
+{{ item.text }}
+            </code>
+        </pre>
+        <br>
+        -- wrote this at {{ item.pub_date }}; 
+    </fieldset>
 </div>
