@@ -1,8 +1,10 @@
 from collections import UserList
 from dataclasses import dataclass
 from typing import Optional, Sequence
+
 from django.urls import include, path
-from social.views import Home, Register, Profile
+
+from social.views import Home, Profile, Register
 
 
 @dataclass(frozen=True, unsafe_hash=True)
@@ -13,7 +15,8 @@ class IncludeFilter:
 
     def __str__(self):
         return self.module
-        
+
+
 class PatternManager:
     """A pattern manager for urlpatterns. 
     
@@ -36,7 +39,7 @@ class PatternManager:
                     <path.n>: <include.n>, 
                     'accounts': 'django.contrib.auth.urls'}
     """
-    
+
     def __init__(self):
         self.data = []
         patterns = dict(
@@ -61,20 +64,18 @@ class PatternManager:
 
             pattern = path(route, view, name=name)
             self.data.append(pattern)
-    
+
     def _filtered_include(self, module, included):
         urlconf_module, *meta = included
         urlpatterns = urlconf_module.urlpatterns
         _type = type(urlpatterns)
         if module.blacklist:
             urlpatterns = filter(
-                lambda pattern: pattern.name not in module.blacklist,
-                urlpatterns,
+                lambda pattern: pattern.name not in module.blacklist, urlpatterns
             )
         if module.whitelist:
             urlpatterns = filter(
-                lambda pattern: pattern.name in module.whitelist,
-                urlpatterns,
+                lambda pattern: pattern.name in module.whitelist, urlpatterns
             )
 
         urlconf_module.urlpatterns = _type(urlpatterns)
@@ -86,7 +87,7 @@ class SocialPatterns(PatternManager, UserList):
     home = "", Home
     profile = "people/<slug>/", Profile
     register = "accounts/register/", Register
-    
+
     includes = {
         "accounts": IncludeFilter(
             "django.contrib.auth.urls", whitelist=("login", "logout")

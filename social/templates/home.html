@@ -11,7 +11,7 @@
         <p><a href="{% url 'logout' %}">logout</a></p>
         {% load renderer %}
         {% for item in feed %}
-        <div>
+        <div class="{{ item | get_class }}">
             <fieldset>
                 <legend><a href="{% url 'profile' item.author %}">{{ item.author }}</a></legend>
                 {% as_html item %}

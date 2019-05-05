@@ -5,14 +5,15 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('social', '0002_snippet'),
-    ]
+    dependencies = [("social", "0002_snippet")]
 
     operations = [
         migrations.AddField(
-            model_name='socialuser',
-            name='avatar',
-            field=models.URLField(blank=True, default='http://www.iconarchive.com/download/i106224/papirus-team/papirus-apps/python.ico'),
-        ),
+            model_name="socialuser",
+            name="avatar",
+            field=models.URLField(
+                blank=True,
+                default="http://www.iconarchive.com/download/i106224/papirus-team/papirus-apps/python.ico",
+            ),
+        )
     ]
