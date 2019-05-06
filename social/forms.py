@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.contrib.auth import get_user_model
+from django_ace import AceWidget
 
 from social.models import Post, Link, Snippet
 
@@ -24,6 +25,9 @@ class SnippetCreationForm(forms.ModelForm):
     class Meta:
         model = Snippet
         fields = ("text",)
+        widgets = {
+            "text": AceWidget(mode='python', theme='monokai'),
+        }
         
 class LinkCreationForm(forms.ModelForm):
     class Meta:

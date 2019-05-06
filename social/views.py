@@ -7,6 +7,7 @@ from purima.views import ExtendedListView
 
 from social import forms
 from social.models import Link, Post, Snippet
+
 class Home(ExtendedListView):
     models = Post, Snippet, Link
     template_name = "home.html"
@@ -14,8 +15,8 @@ class Home(ExtendedListView):
 
     def get_queryset(self):
         qs = list(super().get_queryset())
-        qs.sort(key=(lambda item: item.pub_date))
-        return qs
+        qs.sort(key=(lambda item: item.id))
+        return reversed(qs)
 
 
 class Register(CreateView):
@@ -33,7 +34,18 @@ class SharableCreate(CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+class SharableCreate(CreateView):
+    def __init_subclass__(cls):
+        cls.form_class = getattr(forms, f"{cls.__name__}CreationForm")
+        cls.success_url = reverse_lazy("home")
+        cls.template_name = f"forms/{cls.__name__.lower()}.html"
+        super().__init_subclass__()
         
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
 class Post(SharableCreate):
     pass
 
