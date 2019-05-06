@@ -7,7 +7,7 @@ from django.views.generic import CreateView, DetailView, ListView
 from django.views.generic.base import TemplateView
 
 from social.models import Link, Post, Snippet
-
+from social.forms import SocialUserCreationForm
 
 class ExtendedListView(ListView):
     def get_queryset(self):
@@ -28,7 +28,7 @@ class Home(ExtendedListView):
 
 
 class Register(CreateView):
-    form_class = UserCreationForm
+    form_class = SocialUserCreationForm
     success_url = reverse_lazy("login")
     template_name = "registration/register.html"
 

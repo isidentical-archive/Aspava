@@ -1,34 +1,13 @@
 {% extends 'base.html' %}
 {% block title %}Profile{% endblock %}
-{% block css %}
-    <style>
-    .container {
-        width: 100%;
-        height: 200px;
-        margin: auto;
-        padding: 10px;
-    }
-    .avatar {
-        width: 45%;
-        height: 200px;
-        float: left;
-    }
-    .content {
-        margin-left: 45%;
-        height: 200px;
-    }
-    </style>    
-{% endblock %}
 {% block content %}
-<section class="container">
-    <div class="avatar">
-        <img src="{{ object.avatar }}" alt="{{ object.username }}'s Avatar">
+<center>
+    <div class="card d-flex justify-content-center" style="width: 18rem;">
+      <img class="card-img-top" src="{{ user.avatar }}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{ user.username }}</h5>
+        <p class="card-text">{{ user.desc }}</p>
+      </div>
     </div>
-    <div class="content">
-    <h3>{{ object.username }}</h3>
-    <ul>
-        <li>Mail: {{ object.email }}</li>
-    </ul>
-    </div>
-</section>
+</center>
 {% endblock %}

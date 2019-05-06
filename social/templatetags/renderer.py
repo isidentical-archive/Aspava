@@ -1,11 +1,8 @@
-from contextlib import contextmanager
-from html.parser import HTMLParser
-from io import StringIO
-from urllib.request import urlopen
+from urllib.parse import urlparse
 
 from django import template
 from django.template.loader import render_to_string
-from purima.utils.get_preview import get_preview
+from purima.utils.get_preview import get_preview as _get_preview
 
 register = template.Library()
 
@@ -23,4 +20,12 @@ def as_html(item):
     return result
 
 
-register.simple_tag(get_preview)
+@register.simple_tag
+def get_preview(url):
+    try:
+        preview = _get_preview(url)
+    except:
+        _url = urlparse(url)
+        preview = f"<a href='{url}'>URL to {_url.netloc}</a>"
+    
+    return preview

@@ -14,7 +14,7 @@ class SocialPatterns(PatternManager):
     register = "accounts/register/", Register
 
     includes = {
-        "accounts": IncludeFilter(
+        "accounts/": IncludeFilter(
             "django.contrib.auth.urls", whitelist=("login", "logout")
         )
     }

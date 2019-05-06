@@ -4,7 +4,13 @@ from django.db import models
 
 
 class SocialUser(AbstractUser):
-    avatar = models.URLField(blank=True, default=settings.AVATAR)
+    avatar = models.URLField(blank=True)
+    desc = models.TextField(blank=True)
+    
+    def save(self, *args, **kwargs):
+        self.avatar = settings.AVATAR
+        self.desc = settings.DESC
+        super().save(*args, **kwargs)
 
     @property
     def slug(self):

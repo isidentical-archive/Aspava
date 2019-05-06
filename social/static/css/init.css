@@ -1,0 +1,22 @@
+body {
+  padding-top: 5rem;
+}
+
+legend.scheduler-border {
+    width:inherit; /* Or auto */
+    padding:0 10px; /* To give a bit of padding on the left and right */
+    border-bottom:none;
+}
+
+.feeded {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.feeddate {
+  position: absolute;
+  top: -0.2em;
+  right: 20px;
+  background: #fff;
+  line-height:1.2em;
+}

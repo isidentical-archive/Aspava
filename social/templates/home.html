@@ -6,22 +6,16 @@
           href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
 {% endblock %}
 {% block content %}
-    {% if user.is_authenticated %}
-        Hi {{ user.username }}!
-        <p><a href="{% url 'logout' %}">logout</a></p>
-        {% load renderer %}
-        {% for item in feed %}
-        <div class="{{ item | get_class }}">
-            <fieldset>
-                <legend><a href="{% url 'profile' item.author %}">{{ item.author }}</a></legend>
-                {% as_html item %}
-            </fieldset>
-        </div>
-        {% endfor %}
-    {% else %}
-        <p>You are not logged in</p>
-        <a href="{% url 'login' %}">login</a>
-    {% endif %}
+    {% load renderer %}
+    {% for item in feed %}
+    <div class="container-fluid __{{ item | get_class }}">
+        <fieldset class="border p-2">
+            <legend class="w-auto"><a href="{% url 'profile' item.author %}">{{ item.author }}</a></legend>
+            {% as_html item %}
+            <small class="text-muted">{{ item.pub_date }}</small>
+        </fieldset>
+    </div>
+    {% endfor %}
 {% endblock %}
 {% block js %}
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>    

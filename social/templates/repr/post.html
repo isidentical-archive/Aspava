@@ -1,1 +1,6 @@
-<p> {{ item.text }} </p><br>
+{% extends 'repr/_basic_feed.html' %}
+{% block img %}{{ item.author.avatar }}{% endblock %}
+{% block alt %}Profile picture of  {{ item.author }}{% endblock %}
+{% block content %}
+    <p> {{ item.text }} </p><br>
+{% endblock %}

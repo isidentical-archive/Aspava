@@ -2,11 +2,15 @@
 
 {% block title %}Sign Up{% endblock %}
 
+
 {% block content %}
-  <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign up</button>
-  </form>
+    {% load bootstrap4 %}
+    <h2>Sign up</h2>
+    <form action="{% url 'register' %}" method="post" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        {% endbuttons %}
+    </form>
 {% endblock %}

@@ -1,41 +1,59 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>{% block title %}Aspava{% endblock %}</title>
-  <style>
-    .col-1 {width: 8.33%;}
-    .col-2 {width: 16.66%;}
-    .col-3 {width: 25%;}
-    .col-4 {width: 33.33%;}
-    .col-5 {width: 41.66%;}
-    .col-6 {width: 50%;}
-    .col-7 {width: 58.33%;}
-    .col-8 {width: 66.66%;}
-    .col-9 {width: 75%;}
-    .col-10 {width: 83.33%;}
-    .col-11 {width: 91.66%;}
-    .col-12 {width: 100%;}
-    
-    .row::after {
-      content: "";
-      clear: both;
-      display: table;
-    }
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Aspava">
+    <meta name="author" content="Batuhan Taşkaya">
+    <title>{% block title %}Aspava{% endblock %}</title>
+    {% load static %}
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    <link href="{% static 'css/init.css' %}" rel="stylesheet">
+    {% block css %}{% endblock %}
+  </head>
 
-    [class*="col-"] {
-      float: left;
-      padding: 15px;
-      border: 1px solid red;
-    }
-  </style>
-  {% block css %}{% endblock %}
-</head>
-<body>
-  <main>
-    {% block content %}
-    {% endblock %}
-  </main>
-  {% block js %}{% endblock %}
-</body>
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Aspava</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="#">Post</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}">Register</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="container">
+
+      <div class="feeded">
+        {% block content %}{% endblock %}
+      </div>
+
+    </main>
+    {% bootstrap_javascript jquery='full' %}
+    {% block js %}{% endblock %}
+  </body>
 </html>
+
