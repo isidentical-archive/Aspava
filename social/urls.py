@@ -5,14 +5,11 @@ from typing import Optional, Sequence
 from django.urls import include, path
 from purima.urls import PatternManager, IncludeFilter
 
-from social.views import Home, Profile, Register, Post, Link, Snippet
+from social.views import *
 
 
 class SocialPatterns(PatternManager):
     home = "", Home
-    post = "share/post/", Post
-    link = "share/link/", Link
-    snippet = "share/snippet/", Snippet
     profile = "people/<slug>/", Profile
     register = "accounts/register/", Register
     
@@ -22,5 +19,10 @@ class SocialPatterns(PatternManager):
         )
     }
 
-urlpatterns = SocialPatterns()
+class SocialPostPatterns(PatternManager):
+    create_post = "create/post", CreatePost
+    create_link = "create/link", CreateLink
+    create_snippet = "create/snippet", CreateSnippet
+
+urlpatterns = SocialPatterns() + SocialPostPatterns()
 

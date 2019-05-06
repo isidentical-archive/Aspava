@@ -2,7 +2,7 @@ from urllib.parse import urlparse
 
 from django import template
 from django.template.loader import render_to_string
-from purima.utils.get_preview import get_preview as _get_preview
+from purima.utils.get_preview import _get_preview
 
 register = template.Library()
 

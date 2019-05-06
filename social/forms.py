@@ -16,12 +16,12 @@ class SocialUserChangeForm(UserChangeForm):
         model = get_user_model()
         fields = ("username", "email", "avatar")
 
-class PostCreationForm(forms.ModelForm):
+class CreatePostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ("text",)
 
-class SnippetCreationForm(forms.ModelForm):
+class CreateSnippetForm(forms.ModelForm):
     class Meta:
         model = Snippet
         fields = ("text",)
@@ -29,7 +29,7 @@ class SnippetCreationForm(forms.ModelForm):
             "text": AceWidget(mode='python', theme='monokai'),
         }
         
-class LinkCreationForm(forms.ModelForm):
+class CreateLinkForm(forms.ModelForm):
     class Meta:
         model = Link
         fields = ("url",)

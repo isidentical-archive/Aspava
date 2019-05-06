@@ -6,7 +6,7 @@
 {% block content %}
     {% load bootstrap4 %}
     <h2>Post snippet to feed</h2>
-    <form action="{% url 'snippet' %}" method="post" class="form">
+    <form action="{% url 'create_snippet' %}" method="post" class="form">
         {% csrf_token %}
         {% bootstrap_form form %}
         {% buttons %}
