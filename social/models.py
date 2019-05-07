@@ -1,16 +1,15 @@
+from pathlib import Path
+from random import randint
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-
-class SocialUser(AbstractUser):
-    avatar = models.URLField(blank=True)
-    desc = models.TextField(blank=True)
+def get_avatar():
+    return settings.STATIC_URL / Path(settings.AVATAR_BASE.format(randint(1, 4)))
     
-    def save(self, *args, **kwargs):
-        self.avatar = settings.AVATAR
-        self.desc = settings.DESC
-        super().save(*args, **kwargs)
+class SocialUser(AbstractUser):
+    avatar = models.URLField(blank=True, default=get_avatar)
+    desc = models.TextField(blank=True, default=settings.DESC)
 
     @property
     def slug(self):

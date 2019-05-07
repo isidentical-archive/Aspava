@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -117,5 +116,5 @@ AUTH_USER_MODEL = 'social.SocialUser'
 
 # Extra Settings
 MAX_POST_LENGTH = 144 * 2
-AVATAR = 'http://www.iconarchive.com/download/i106224/papirus-team/papirus-apps/python.ico'
+AVATAR_BASE = 'img/avatars/avatar_{}.png'
 DESC = "Apparently, this user prefers to keep an air of mystery about them."

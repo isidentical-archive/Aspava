@@ -9,12 +9,12 @@ from social.models import Post, Link, Snippet
 class SocialUserCreationForm(UserCreationForm):
     class Meta:
         model = get_user_model()
-        fields = ("username", "email", "avatar")
+        fields = ("username", "email")
 
 class SocialUserChangeForm(UserChangeForm):
     class Meta:
         model = get_user_model()
-        fields = ("username", "email", "avatar")
+        fields = ("username", "email")
 
 class CreatePostForm(forms.ModelForm):
     class Meta:
