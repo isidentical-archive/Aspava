@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete post{% endblock %}
+
+
+{% block content %}
+    {% load bootstrap4 %}
+    {% load renderer %}
+    <h2>Delete Post</h2>
+    <div class="container-fluid __{{ item | get_class }}">
+        <fieldset class="border p-2">
+            {% as_html object %}
+            <small class="text-muted">{{ object.pub_date }}</small>
+        </fieldset>
+    </div>
+    <form method="post" class="form">
+        {% csrf_token %}
+        {% buttons %}
+            <button type="submit" class="btn btn-primary" value="Confirm">Delete Post</button>
+        {% endbuttons %}
+    </form>
+{% endblock %}

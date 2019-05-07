@@ -19,17 +19,15 @@ class SocialUserChangeForm(UserChangeForm):
         model = get_user_model()
         fields = ("username", "email")
 
-class CreateSharedForm(forms.ModelForm):
+class SharedForm(forms.ModelForm):
     captcha = CaptchaField()
     
-class CreatePostForm(CreateSharedForm):
-    captcha = CaptchaField()
+class CreatePostForm(SharedForm):
     class Meta:
         model = Post
         fields = ("text",)
 
-class CreateSnippetForm(CreateSharedForm):
-    captcha = CaptchaField()
+class CreateSnippetForm(SharedForm):
     class Meta:
         model = Snippet
         fields = ("text",)
@@ -37,8 +35,7 @@ class CreateSnippetForm(CreateSharedForm):
             "text": AceWidget(mode='python', theme='monokai'),
         }
         
-class CreateLinkForm(CreateSharedForm):
-    captcha = CaptchaField()
+class CreateLinkForm(SharedForm):
     class Meta:
         model = Link
         fields = ("url",)

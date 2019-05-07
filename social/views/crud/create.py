@@ -6,9 +6,12 @@ __all__ = ['CreatePost', 'CreateLink', 'CreateSnippet']
 
 class SharableCreate(CreateView):
     def __init_subclass__(cls):
+        simple_name = cls.__name__.replace('Create', '').lower()
+        
         cls.form_class = getattr(forms, f"{cls.__name__}Form")
         cls.success_url = reverse_lazy("home")
-        cls.template_name = f"forms/create/{cls.__name__.replace('Create', '').lower()}.html"
+        cls.template_name = f"forms/create/{simple_name}.html"
+        
         super().__init_subclass__()
         
     def form_valid(self, form):
