@@ -2,7 +2,7 @@ from urllib.parse import urlparse
 
 from django import template
 from django.template.loader import render_to_string
-from purima.utils.get_preview import _get_preview
+from purima.utils.get_preview import _get_preview, construct_preview
 
 register = template.Library()
 
@@ -26,6 +26,6 @@ def get_preview(url):
         preview = _get_preview(url)
     except:
         _url = urlparse(url)
-        preview = f"<a href='{url}'>URL to {_url.netloc}</a>"
+        preview = construct_preview(url, {'title': _url.netloc})
     
     return preview
