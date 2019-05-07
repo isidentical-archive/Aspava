@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'social',
     'bootstrap4',
-    'django_ace'
+    'django_ace',
+    'captcha'
 ]
 
 MIDDLEWARE = [

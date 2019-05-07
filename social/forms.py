@@ -2,26 +2,34 @@ from django import forms
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.contrib.auth import get_user_model
 from django_ace import AceWidget
+from captcha.fields import CaptchaField
 
 from social.models import Post, Link, Snippet
 
-
+    
 class SocialUserCreationForm(UserCreationForm):
+    captcha = CaptchaField()
     class Meta:
         model = get_user_model()
         fields = ("username", "email")
 
 class SocialUserChangeForm(UserChangeForm):
+    captcha = CaptchaField()
     class Meta:
         model = get_user_model()
         fields = ("username", "email")
 
-class CreatePostForm(forms.ModelForm):
+class CreateSharedForm(forms.ModelForm):
+    captcha = CaptchaField()
+    
+class CreatePostForm(CreateSharedForm):
+    captcha = CaptchaField()
     class Meta:
         model = Post
         fields = ("text",)
 
-class CreateSnippetForm(forms.ModelForm):
+class CreateSnippetForm(CreateSharedForm):
+    captcha = CaptchaField()
     class Meta:
         model = Snippet
         fields = ("text",)
@@ -29,7 +37,8 @@ class CreateSnippetForm(forms.ModelForm):
             "text": AceWidget(mode='python', theme='monokai'),
         }
         
-class CreateLinkForm(forms.ModelForm):
+class CreateLinkForm(CreateSharedForm):
+    captcha = CaptchaField()
     class Meta:
         model = Link
         fields = ("url",)

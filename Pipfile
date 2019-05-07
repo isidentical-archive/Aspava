@@ -9,6 +9,8 @@ verify_ssl = true
 django = "*"
 django-bootstrap4 = "*"
 django-ace = "*"
+pillow = "*"
+django-simple-captcha = "*"
 
 [requires]
 python_version = "3.7"

@@ -16,7 +16,8 @@ class SocialPatterns(PatternManager):
     includes = {
         "accounts/": IncludeFilter(
             "django.contrib.auth.urls", whitelist=("login", "logout")
-        )
+        ),
+        "captcha/": "captcha.urls"
     }
 
 class SocialPostPatterns(PatternManager):
