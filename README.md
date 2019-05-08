@@ -1,4 +1,11 @@
 # Aspava
-Social media for Pythonistas
+A simple feed of things. [Demo](http://purima.duckdns.org) 
 
-![preview](preview.png)
+
+## Features
+- Post sharing
+- Link sharing and getting preview of links like twitter with parsing metadata
+- Snippet sharing and python syntax highlighting
+- Code editor at snippet sharing
+- Simple captcha for blocking spamming
+- Full CRUD
