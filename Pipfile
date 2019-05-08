@@ -11,6 +11,11 @@ django-bootstrap4 = "*"
 django-ace = "*"
 pillow = "*"
 django-simple-captcha = "*"
+gunicorn = "*"
+whitenoise = "*"
+
+[scripts]
+start = "gunicorn aspava.wsgi:application --bind localhost:8000"
 
 [requires]
 python_version = "3.7"
