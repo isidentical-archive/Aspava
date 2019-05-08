@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Update link{% endblock %}
+
+
+{% block content %}
+    {% load bootstrap4 %}
+    <h2>Update Link</h2>
+    <form method="post" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <button type="submit" class="btn btn-primary">Update Link</button>
+        {% endbuttons %}
+    </form>
+{% endblock %}

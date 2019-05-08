@@ -35,5 +35,5 @@ def get_preview(url):
     return preview
 
 @register.simple_tag
-def get_delete(item):
-    return reverse(f"delete_{_get_class(item)}", args=(item.id,))
+def get_opt(opt, item):
+    return reverse(f"{opt}_{_get_class(item)}", args=(item.id,))

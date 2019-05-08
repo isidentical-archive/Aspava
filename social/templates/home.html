@@ -14,7 +14,8 @@
             {% as_html item %}
             <small class="text-muted">{{ item.pub_date }}</small>
             {% if item.author == request.user %}
-            <small class="text-muted"><a href="{% get_delete item %}">delete</a></small>
+            <small class="text-muted"><a href="{% get_opt 'delete' item %}">delete</a></small>
+            <small class="text-muted"><a href="{% get_opt 'update' item %}">update</a></small>
             {% endif %}
         </fieldset>
     </div>

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Update snippet{% endblock %}
+
+{% block css %}{{ form.media }}{% endblock %}
+{% block content %}
+    {% load bootstrap4 %}
+    <h2>Update Snippet</h2>
+    <form method="post" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <button type="submit" class="btn btn-primary">Update Snippet</button>
+        {% endbuttons %}
+    </form>
+{% endblock %}

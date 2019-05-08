@@ -22,12 +22,15 @@ class SocialPatterns(PatternManager):
 
 class SocialPostPatterns(PatternManager):
     create_post = "post/create", CreatePost
+    update_post = "post/update/<int:pk>", UpdatePost
     delete_post = "post/delete/<int:pk>", DeletePost
      
     create_link = "link/create", CreateLink
+    update_link = "link/update/<int:pk>", UpdateLink
     delete_link = "link/delete/<int:pk>", DeleteLink
     
     create_snippet = "snippet/create", CreateSnippet
+    update_snippet = "snippet/update/<int:pk>", UpdateSnippet
     delete_snippet = "snippet/delete/<int:pk>", DeleteSnippet
 
 urlpatterns = SocialPatterns() + SocialPostPatterns()
