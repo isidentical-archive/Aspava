@@ -1,12 +1,15 @@
 from pathlib import Path
 from random import randint
+
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+
 def get_avatar():
     return settings.STATIC_URL / Path(settings.AVATAR_BASE.format(randint(1, 4)))
-    
+
+
 class SocialUser(AbstractUser):
     avatar = models.URLField(blank=True, default=get_avatar)
     desc = models.TextField(blank=True, default=settings.DESC)

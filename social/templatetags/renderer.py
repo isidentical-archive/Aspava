@@ -1,8 +1,9 @@
 from urllib.parse import urlparse
 
 from django import template
-from django.urls import reverse
 from django.template.loader import render_to_string
+from django.urls import reverse
+
 from purima.utils.get_preview import _get_preview, construct_preview
 
 register = template.Library()
@@ -10,7 +11,8 @@ register = template.Library()
 
 def _get_class(item):
     return item.__class__.__name__.lower()
-    
+
+
 @register.filter
 def get_class(item):
     return _get_class(item)
@@ -30,9 +32,10 @@ def get_preview(url):
         preview = _get_preview(url)
     except:
         _url = urlparse(url)
-        preview = construct_preview(url, {'title': _url.netloc})
-    
+        preview = construct_preview(url, {"title": _url.netloc})
+
     return preview
+
 
 @register.simple_tag
 def get_opt(opt, item):

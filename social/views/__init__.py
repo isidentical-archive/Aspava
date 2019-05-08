@@ -1,8 +1,8 @@
-from social.views.crud import *
-from social.views.auth import *
-
 from purima.views import ExtendedListView
 from social.models import Link, Post, Snippet
+from social.views.auth import *
+from social.views.crud import *
+
 
 class Home(ExtendedListView):
     models = Post, Snippet, Link

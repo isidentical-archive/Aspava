@@ -5,19 +5,13 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('social', '0004_link'),
-    ]
+    dependencies = [("social", "0004_link")]
 
     operations = [
         migrations.AddField(
-            model_name='socialuser',
-            name='desc',
-            field=models.TextField(blank=True),
+            model_name="socialuser", name="desc", field=models.TextField(blank=True)
         ),
         migrations.AlterField(
-            model_name='socialuser',
-            name='avatar',
-            field=models.URLField(blank=True),
+            model_name="socialuser", name="avatar", field=models.URLField(blank=True)
         ),
     ]
