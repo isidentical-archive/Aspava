@@ -19,9 +19,9 @@ def get_class(item):
 
 
 @register.simple_tag
-def as_html(item):
+def as_html(item, user):
     result = render_to_string(
-        f"repr/{item.__class__.__name__.lower()}.html", {"item": item}
+        f"repr/{item.__class__.__name__.lower()}.html", {"item": item, "user": user}
     )
     return result
 

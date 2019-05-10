@@ -29,7 +29,7 @@ def run_snippet(request):
     global evality
     try:
         result = evality.run_cmd(snippet.text, snippet.author.id)
-    except docker.DockerException:
+    except docker.exceptions.DockerException:
         evality.quit()
 
     result['id'] = snippet.id

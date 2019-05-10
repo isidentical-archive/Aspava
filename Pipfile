@@ -14,7 +14,7 @@ django-simple-captcha = "*"
 gunicorn = "*"
 whitenoise = "*"
 docker = "*"
-evality = "==0.1.2"
+evality = "==0.2.1"
 
 [scripts]
 start = "gunicorn aspava.wsgi:application --bind localhost:8000"
