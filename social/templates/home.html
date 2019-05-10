@@ -11,7 +11,7 @@
     <div class="container-fluid __{{ item | get_class }}">
         <fieldset class="border p-2">
             <legend class="w-auto"><a href="{% url 'profile' item.author %}">{{ item.author }}</a></legend>
-            {% as_html item %}
+            {% as_html item request.user %}
             <small class="text-muted">{{ item.pub_date }}</small>
             {% if item.author == request.user %}
             <small class="text-muted"><a href="{% get_opt 'delete' item %}">delete</a></small>
@@ -22,6 +22,29 @@
     {% endfor %}
 {% endblock %}
 {% block js %}
+    {% load static %}
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>    
     <script>hljs.initHighlightingOnLoad();</script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script>
+    $(function () {
+        $('button').on('click', function () {
+            $.ajaxSetup({
+                headers: { "X-CSRFToken": getCookie("csrftoken") }
+            });
+            $.ajax({
+                url: '{% url "snippet_runner" %}',
+                data: {
+                    pk: this.id
+                },
+                dataType: 'json',
+                method: 'POST',
+                success: function(result){
+                    $("#code_" + result.id).html("Output: " + result.result.out + "\n");
+                    $("#code_" + result.id).append("Error: " + result.result.err);
+                }
+            });
+        });
+    });
+    </script>
 {% endblock %}

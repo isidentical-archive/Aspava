@@ -12,6 +12,8 @@ class SocialPatterns(PatternManager):
     home = "", Home
     profile = "people/<slug>/", Profile
     register = "accounts/register/", Register
+    
+    snippet_runner = "snippet/run/", run_snippet 
 
     includes = {
         "accounts/": IncludeFilter(

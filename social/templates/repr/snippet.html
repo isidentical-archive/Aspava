@@ -7,4 +7,14 @@
 {{ item.text }}
         </code>
     </pre>
+    {% if user.is_authenticated %}
+    <pre>
+        <code id="code_{{ item.pk }}">
+        </code>
+    </pre>
+    <button type="button" class="btn btn-secondary btn-lg" id="{{ item.pk }}">Run</button>
+    {% else %}
+    <button type="button" class="btn btn-secondary btn-lg" disabled>Run</button>
+    You can't run without not logging in.
+    {% endif %}
 {% endblock %}

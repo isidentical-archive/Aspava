@@ -1,6 +1,12 @@
 #!/usr/bin/env python
+import atexit
 import os
 import sys
+
+@atexit.register
+def quit():
+    from social.views import evality
+    evality.quit()
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "aspava.settings")
@@ -13,3 +19,4 @@ if __name__ == "__main__":
             "forget to activate a virtual environment?"
         ) from exc
     execute_from_command_line(sys.argv)
+        
