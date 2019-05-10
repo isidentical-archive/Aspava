@@ -13,6 +13,8 @@ pillow = "*"
 django-simple-captcha = "*"
 gunicorn = "*"
 whitenoise = "*"
+docker = "*"
+evality = "*"
 
 [scripts]
 start = "gunicorn aspava.wsgi:application --bind localhost:8000"
