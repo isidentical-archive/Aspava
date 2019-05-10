@@ -26,10 +26,10 @@ class Home(ExtendedListView):
 @csrf_exempt
 def run_snippet(request):
     snippet = get_object_or_404(Snippet, pk = request.POST.get('pk', None))
+    global evality
     try:
         result = evality.run_cmd(snippet.text, snippet.author.id)
     except docker.DockerException:
-        global evality
         evality.quit()
 
     result['id'] = snippet.id

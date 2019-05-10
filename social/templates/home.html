@@ -11,7 +11,7 @@
     <div class="container-fluid __{{ item | get_class }}">
         <fieldset class="border p-2">
             <legend class="w-auto"><a href="{% url 'profile' item.author %}">{{ item.author }}</a></legend>
-            {% as_html item request.user %}
+            {% as_html item %}
             <small class="text-muted">{{ item.pub_date }}</small>
             {% if item.author == request.user %}
             <small class="text-muted"><a href="{% get_opt 'delete' item %}">delete</a></small>
