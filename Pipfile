@@ -15,7 +15,6 @@ gunicorn = "*"
 whitenoise = "*"
 docker = "*"
 evality = "==0.2.1"
-django-cron = "*"
 
 [scripts]
 start = "gunicorn aspava.wsgi:application --bind localhost:8000"

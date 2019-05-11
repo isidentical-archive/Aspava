@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     "bootstrap4",
     "django_ace",
     "captcha",
-    "django_cron",
 ]
 
 MIDDLEWARE = [
@@ -122,6 +121,3 @@ AUTH_USER_MODEL = "social.SocialUser"
 MAX_POST_LENGTH = 144 * 2
 AVATAR_BASE = "img/avatars/avatar_{}.png"
 DESC = "Apparently, this user prefers to keep an air of mystery about them."
-
-# Crons
-CRON_CLASSES = ["social.cronjobs.RenewEvalityCron"]
