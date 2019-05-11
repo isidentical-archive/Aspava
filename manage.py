@@ -2,12 +2,9 @@
 import atexit
 import os
 import sys
+from social.utils import quit_evality
 
-@atexit.register
-def quit():
-    from social.views import evality
-    evality.quit()
-
+atexit.register(quit_evality)
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "aspava.settings")
     try:

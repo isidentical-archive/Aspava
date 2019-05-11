@@ -1,4 +1,5 @@
 import docker
+import docker.errors
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
@@ -29,7 +30,7 @@ def run_snippet(request):
     global evality
     try:
         result = evality.run_cmd(snippet.text, snippet.author.id)
-    except docker.exceptions.DockerException:
+    except docker.errors.DockerException:
         evality.quit()
 
     result['id'] = snippet.id
