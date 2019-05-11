@@ -4,9 +4,11 @@
 {% block css %}
     <link rel="stylesheet"
           href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
 {% endblock %}
 {% block content %}
     {% load renderer %}
+    {% load likes_inclusion_tags %}
     {% for item in feed %}
     <div class="container-fluid __{{ item | get_class }}">
         <fieldset class="border p-2">
@@ -17,6 +19,7 @@
             <small class="text-muted"><a href="{% get_opt 'delete' item %}">delete</a></small>
             <small class="text-muted"><a href="{% get_opt 'update' item %}">update</a></small>
             {% endif %}
+            {% likes item %}
         </fieldset>
     </div>
     {% endfor %}

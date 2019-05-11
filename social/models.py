@@ -1,3 +1,5 @@
+import secretballot
+
 from pathlib import Path
 from random import randint
 
@@ -30,7 +32,7 @@ class Sharable(models.Model):
     def __str__(self):
         return f"{self.__class__.__name__}@{self.author}"
 
-
+secretballot.enable_voting_on(Sharable)
 class Post(Sharable):
     text = models.TextField(max_length=settings.MAX_POST_LENGTH)
 

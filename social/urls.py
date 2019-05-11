@@ -20,6 +20,7 @@ class SocialPatterns(PatternManager):
             "django.contrib.auth.urls", whitelist=("login", "logout")
         ),
         "captcha/": "captcha.urls",
+        "likes/": "likes.urls",
     }
 
 

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "f7d5f6bc4fbca2893bd56d1a4941e33a77186a659547c40ffcc69188771f1deb"
+            "sha256": "2f1f3de9ee8b52c3431dbe2c87d0a4b409c88ab54f4bec0da520f0e053117b23"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -53,11 +53,26 @@
             "index": "pypi",
             "version": "==0.0.8"
         },
+        "django-likes": {
+            "hashes": [
+                "sha256:7342826298f3a5fbcc12892c3f539edc8d065c59dfa0d7c65d9806244e88f408"
+            ],
+            "index": "pypi",
+            "version": "==2.0.1"
+        },
         "django-ranged-response": {
             "hashes": [
                 "sha256:f71fff352a37316b9bead717fc76e4ddd6c9b99c4680cdf4783b9755af1cf985"
             ],
             "version": "==0.2.0"
+        },
+        "django-secretballot": {
+            "hashes": [
+                "sha256:3570618acfa2ee75976cae674f91124af35e2139635d7893de2cc3d4d04fecb0",
+                "sha256:e182ca18ba891265865605c54ed4ea8c9515a8e8c10b6dd261904f9c6ecd64f1"
+            ],
+            "index": "pypi",
+            "version": "==1.0.0"
         },
         "django-simple-captcha": {
             "hashes": [

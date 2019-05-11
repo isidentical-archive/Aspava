@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     "bootstrap4",
     "django_ace",
     "captcha",
+    "secretballot",
+    "likes",
 ]
 
 MIDDLEWARE = [
@@ -52,9 +54,21 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "likes.middleware.SecretBallotIpUseragentMiddleware"
 ]
 
 ROOT_URLCONF = "aspava.urls"
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.template.context_processors.debug",
+    "django.template.context_processors.i18n",
+    "django.template.context_processors.media",
+    "django.template.context_processors.static",
+    "django.template.context_processors.tz",
+    "django.template.context_processors.request",
+    "django.contrib.messages.context_processors.messages",
+)
 
 TEMPLATES = [
     {
@@ -62,12 +76,7 @@ TEMPLATES = [
         "DIRS": [],
         "APP_DIRS": True,
         "OPTIONS": {
-            "context_processors": [
-                "django.template.context_processors.debug",
-                "django.template.context_processors.request",
-                "django.contrib.auth.context_processors.auth",
-                "django.contrib.messages.context_processors.messages",
-            ]
+            "context_processors": TEMPLATE_CONTEXT_PROCESSORS
         },
     }
 ]
