@@ -10,6 +10,7 @@
         {% csrf_token %}
         {% bootstrap_form form %}
         {% buttons %}
+            <button class='js-captcha-refresh'>Refresh Captcha</button>
             <button type="submit" class="btn btn-primary">Post link</button>
         {% endbuttons %}
     </form>

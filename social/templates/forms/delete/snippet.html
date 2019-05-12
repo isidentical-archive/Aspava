@@ -16,6 +16,7 @@
     <form method="post" class="form">
         {% csrf_token %}
         {% buttons %}
+            <button class='js-captcha-refresh'>Refresh Captcha</button>
             <button type="submit" class="btn btn-primary" value="Confirm">Delete Snippet</button>
         {% endbuttons %}
     </form>

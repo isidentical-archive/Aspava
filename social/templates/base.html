@@ -61,6 +61,8 @@
     </main>
     {% bootstrap_javascript jquery='full' %}
     {% block js %}{% endblock %}
+    {% load static %}
+    <script src="{% static 'js/main.js' %}"></script>
   </body>
 </html>
 

@@ -8,7 +8,7 @@
 {% block content %}
     {% load renderer %}
     {% load likes_inclusion_tags %}
-    {% for item in feed %}
+    {% for item in this_day %}
     <div class="container-fluid __{{ item | get_class }}">
         <fieldset class="border p-2">
             <legend class="w-auto"><a href="{% url 'profile' item.author %}">{{ item.author }}</a></legend>
@@ -24,10 +24,8 @@
     {% endfor %}
 {% endblock %}
 {% block js %}
-    {% load static %}
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>    
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="{% static 'js/main.js' %}"></script>
     <script>
     $(function () {
         $('button').on('click', function () {

@@ -27,7 +27,7 @@ class Sharable(models.Model):
 
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
-    pub_date = models.TimeField(auto_now=True)
+    pub_date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"{self.__class__.__name__}@{self.author}"
