@@ -1,5 +1,5 @@
 # Aspava
-A simple feed of things. [Demo](http://purima.duckdns.org) 
+A simple feed of things.
 
 
 ## Features
